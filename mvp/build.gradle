@@ -43,8 +43,7 @@ dependencies {
     compile 'com.orhanobut:logger:2.1.1'
 
     //----------------------------butterknife-----------------------------
-    compile 'com.jakewharton:butterknife:+'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:+'
+
 
     //----------------------------网络请求库-----------------------------
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
