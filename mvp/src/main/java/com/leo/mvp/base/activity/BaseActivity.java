@@ -127,6 +127,25 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         }
         return toolbar;
     }
+    public Toolbar initToolBarAsHomeIcon(String title) {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            TextView toolbaTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+            toolbaTitle.setText(title);
+        }
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeAsUpIndicator(R.drawable.menu);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
+        return toolbar;
+    }
+
+
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onReslut(EventBaseBean<String> eventBaseBean){
 
