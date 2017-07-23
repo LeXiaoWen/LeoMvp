@@ -2,13 +2,15 @@ package com.leo.leomvp.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.leo.leomvp.R;
+import com.leo.leomvp.test.fragment.TestFragment;
 import com.leo.mvp.base.activity.BaseActivity;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,11 +23,9 @@ import butterknife.OnClick;
 public class TestActivity extends BaseActivity<TestActivityPresenter> {
     @BindView(R.id.subscrib)
     Button mSubscrib;
+    @BindView(R.id.fl_content)
+    FrameLayout mFlContent;
 
-    @Override
-    protected TestActivityPresenter createPresenter() {
-        return new TestActivityPresenter();
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,14 +35,23 @@ public class TestActivity extends BaseActivity<TestActivityPresenter> {
         initToolBarAsHome("test");
     }
 
+    @Override
+    protected void bindingDagger2(Bundle savedInstanceState) {
+        DaggerTestActivityComponent.create().inject(this);
+    }
+
     @OnClick(R.id.subscrib)
     public void onViewClicked() {
 
         mPresenter.onButtonClick();
+
+       FragmentManager supportFragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+        TestFragment instance = TestFragment.getInstance();
+        fragmentTransaction.replace(R.id.fl_content, instance);
+        fragmentTransaction.commit();
     }
 
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onReslut(String userName){
-//
-//    }
+
+
 }

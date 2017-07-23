@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.leo.leomvp.MainActivity">
-
+    tools:context="com.leo.leomvp.test.PermissionActivity">
 
     <Button
-        android:text="dagger2测试"
-        android:id="@+id/btn"
+        android:text="打电话"
+        android:id="@+id/b_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-
     <Button
-        android:text="dagger2"
-        android:id="@+id/button_dagger"
+        android:id="@+id/b_apply"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="申请权限"/>
+
 </LinearLayout>

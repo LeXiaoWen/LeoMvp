@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.leo.mvp.R;
 import com.leo.mvp.base.bean.EventBaseBean;
-import com.leo.mvp.base.presenter.BasePresenter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -23,22 +22,25 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.inject.Inject;
+
 /**
  * Created by Leo on 2017/6/26.
  */
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
+    @Inject
     public T mPresenter;
     private static final Set<BaseActivity> activityList = new HashSet();
 
     public BaseActivity() {
     }
 
-    protected abstract T createPresenter();
+
 
     protected void onCreate(@Nullable Bundle savedInstanceState) throws RuntimeException {
         super.onCreate(savedInstanceState);
-        mPresenter = createPresenter();
+        bindingDagger2(savedInstanceState);
         if (this.mPresenter == null) {
             throw new RuntimeException("没有设置Presenter或者没有重写onCreate()方法");
         } else {
@@ -47,6 +49,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             this.mPresenter.onCreate(savedInstanceState);
         }
     }
+
+    protected abstract void bindingDagger2(Bundle savedInstanceState);
 
 
     public void setContentView(@LayoutRes int layoutResID) {
@@ -114,6 +118,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     public Toolbar initToolBarAsHome(String title) {
 
+        if (Build.VERSION.SDK_INT >= 21) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -128,6 +140,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         return toolbar;
     }
     public Toolbar initToolBarAsHomeIcon(String title) {
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

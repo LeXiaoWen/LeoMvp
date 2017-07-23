@@ -1,6 +1,4 @@
-package com.leo.mvp.base.model;
-
-import com.leo.mvp.base.presenter.BasePresenter;
+package com.leo.mvp.base.activity;
 
 /**
  * Created by Leo on 2017/6/26.
@@ -18,4 +16,6 @@ public abstract class BaseModel<T extends BasePresenter> {
 
     public void onDetached() {
     }
+
+
 }
