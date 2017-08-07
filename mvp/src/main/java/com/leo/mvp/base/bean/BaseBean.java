@@ -4,7 +4,7 @@ package com.leo.mvp.base.bean;
  * Created by Leo on 2017/6/27.
  */
 
-public class EventBaseBean<T> {
+public class BaseBean<T> {
     private int code;
     private T data;
 

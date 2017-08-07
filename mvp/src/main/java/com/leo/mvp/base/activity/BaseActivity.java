@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.leo.mvp.R;
-import com.leo.mvp.base.bean.EventBaseBean;
+import com.leo.mvp.base.bean.BaseBean;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -167,7 +167,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onReslut(EventBaseBean<String> eventBaseBean){
+    public void onReslut(BaseBean<String> eventBaseBean){
 
     }
 }

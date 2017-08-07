@@ -9,12 +9,11 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
- * <pre>
- *     author: Cree
- *     time  : 2016/8/7
- *     desc  : 编码解码相关工具类
- * </pre>
- */
+* 编码解码相关工具类
+*
+*@author Leo
+*created at 2017/7/24 下午9:35
+*/
 public class EncodeUtils {
 
     private EncodeUtils() {

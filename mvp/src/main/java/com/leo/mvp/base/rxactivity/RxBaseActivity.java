@@ -12,8 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.leo.mvp.R;
-import com.leo.mvp.base.activity.BaseActivity;
-import com.leo.mvp.base.bean.EventBaseBean;
+import com.leo.mvp.base.bean.BaseBean;
 import com.leo.mvp.net.HttpResult;
 
 import org.greenrobot.eventbus.EventBus;
@@ -248,7 +247,7 @@ public abstract class RxBaseActivity<P extends RxBasePresenter> extends AppCompa
 
     //---------------------------------- eventBus start ----------------------------------
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onReslut(EventBaseBean<String> eventBaseBean) {
+    public void onReslut(BaseBean<String> eventBaseBean) {
 
     }
 

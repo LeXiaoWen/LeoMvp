@@ -18,7 +18,7 @@ import com.leo.mvp.util.Utils;
 
 /**
  * <pre>
- *     author: Cree
+ *     author: Leo
  *     time  : 2016/8/2
  *     desc  : 屏幕相关工具类
  * </pre>

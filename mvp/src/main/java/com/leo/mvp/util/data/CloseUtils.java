@@ -4,12 +4,11 @@ import java.io.Closeable;
 import java.io.IOException;
 
 /**
- * <pre>
- *     author: Cree
- *     time  : 2016/10/9
- *     desc  : 关闭相关工具类
- * </pre>
- */
+* 关闭相关工具类
+*
+*@author Leo
+*created at 2017/7/24 下午9:34
+*/
 public class CloseUtils {
 
     private CloseUtils() {

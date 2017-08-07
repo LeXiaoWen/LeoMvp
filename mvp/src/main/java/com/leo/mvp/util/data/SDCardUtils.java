@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 
 /**
  * <pre>
- *     author: Cree
+ *     author: Leo
  *     time  : 2016/8/11
  *     desc  : SD卡相关工具类
  * </pre>

@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.leo.leomvp.R;
 import com.leo.mvp.util.toast.ToastUtils;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -21,6 +22,7 @@ import org.reactivestreams.Subscription;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.functions.Consumer;
 
 public class PermissionActivity extends AppCompatActivity {
 
@@ -36,7 +38,17 @@ public class PermissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
         ButterKnife.bind(this);
-        test();
+        new RxPermissions(this).request(Manifest.permission.CAMERA).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(@io.reactivex.annotations.NonNull Boolean aBoolean) throws Exception {
+               if (aBoolean){
+                   ToastUtils.showShortToast("权限打开！");
+               }else {
+                   ToastUtils.showShortToast("权限被拒绝！");
+               }
+            }
+        });
+//        test();
     }
 
     private void test() {

@@ -1,12 +1,11 @@
 package com.leo.mvp.util.data;
 
 /**
- * <pre>
- *     author: Cree
- *     time  : 2016/8/11
- *     desc  : 常量相关工具类
- * </pre>
- */
+* 常量相关工具类
+*
+*@author Leo
+*created at 2017/7/24 下午9:34
+*/
 public class ConstUtils {
 
     private ConstUtils() {

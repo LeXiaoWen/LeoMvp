@@ -20,12 +20,11 @@ import java.util.List;
 
 
 /**
- * <pre>
- *     author: Cree
- *     time  : 2016/8/2
- *     desc  : App相关工具类
- * </pre>
- */
+* app相关工具类
+*
+*@author Leo
+*created at 2017/7/24 下午9:34
+*/
 public class AppUtils {
 
     private AppUtils() {

@@ -1,16 +1,10 @@
 package com.leo.leomvp.test;
 
 import com.leo.leomvp.bean.TestBean;
-import com.leo.leomvp.net.CookListModel;
 import com.leo.leomvp.net.HttpService;
 import com.leo.mvp.base.activity.BasePresenter;
 import com.leo.mvp.net.Api;
-import com.leo.mvp.net.ApiCallback;
 import com.leo.mvp.net.RxSchedulers;
-import com.leo.mvp.util.log.LogUtils;
-import com.leo.mvp.util.toast.ToastUtils;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -19,12 +13,8 @@ import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Leo on 2017/6/26.

@@ -22,12 +22,11 @@ import java.io.UnsupportedEncodingException;
 
 
 /**
- * <pre>
- *     author: Cree
- *     time  : 2016/8/13
- *     desc  : 转换相关工具类
- * </pre>
- */
+* 转换相关工具类
+*
+*@author Leo
+*created at 2017/7/24 下午9:35
+*/
 public class ConvertUtils {
 
     private ConvertUtils() {

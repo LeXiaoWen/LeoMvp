@@ -5,12 +5,11 @@ import com.leo.mvp.util.Utils;
 import java.io.File;
 
 /**
- * <pre>
- *     author: Cree
- *     time  : 2016/9/27
- *     desc  : 清除相关工具类
- * </pre>
- */
+* 清除相关工具类
+*
+*@author Leo
+*created at 2017/7/24 下午9:34
+*/
 public class CleanUtils {
 
     private CleanUtils() {

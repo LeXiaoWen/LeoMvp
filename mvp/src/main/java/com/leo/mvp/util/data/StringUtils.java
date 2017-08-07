@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 /**
  * <pre>
- *     author: Cree
+ *     author: Leo
  *     time  : 2016/8/16
  *     desc  : 字符串相关工具类
  * </pre>
