@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.leo.leomvp.test.dialog.DialogActivity">
+
+    <Button
+        android:id="@+id/dialog1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dialog1"/>
+
+    <Button
+        android:id="@+id/dialog2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dialog2"/>
+
+    <Button
+        android:id="@+id/dialog3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dialog3"/>
+
+    <Button
+        android:id="@+id/dialog4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dialog4"/>
+</LinearLayout>

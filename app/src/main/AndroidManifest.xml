@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
     <application
         android:name=".LeoApp"
         android:allowBackup="true"
@@ -12,8 +14,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".test.PermissionActivity">
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait">
+        <activity android:name=".test.recyclerview.RecyclerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -26,6 +29,13 @@
         </activity>
         <activity android:name=".test.fragment.RxPermissionActivity">
         </activity>
+        <activity android:name=".test.java.JavaActivity">
+        </activity>
+        <activity android:name=".test.dialog.DialogActivity">
+        </activity>
+        <activity android:name=".test.exception.ExceptionActivity">
+        </activity>
+        <activity android:name=".test.recyclerview.info.InfoActivity"/>
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@ public class LeoApp extends Application{
     public void onCreate() {
         super.onCreate();
         LogUtils.init("leo");
-        Api.init(getApplicationContext(), HttpUrl.BASE);
+        Api.init(getApplicationContext(), HttpUrl.FANPIAN_BASE);
         Utils.init(getApplicationContext());
         ToastUtils.init(false);
     }

@@ -20,7 +20,7 @@ import java.util.List;
 *created at 2017/7/24 下午9:33
 */
 public abstract class BaseRecylerAdapter<T, E extends BaseRecylerAdapter.BaseViewHolder> extends RecyclerView.Adapter<E> {
-    Context mContext;
+    protected  Context mContext;
 
     protected final LayoutInflater mFrom;
     List<T> mDataBeen;

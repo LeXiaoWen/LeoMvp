@@ -18,4 +18,5 @@ public abstract class BaseModel<T extends BasePresenter> {
     }
 
 
+
 }

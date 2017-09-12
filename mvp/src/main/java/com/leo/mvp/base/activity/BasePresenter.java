@@ -54,6 +54,7 @@ public abstract class BasePresenter<T extends BaseActivity,M extends BaseModel> 
     }
 
     public void onResume() {
+
     }
 
     public void onPause() {
@@ -78,4 +79,6 @@ public abstract class BasePresenter<T extends BaseActivity,M extends BaseModel> 
                 .subscribe(consumer));
 
     }
+
+
 }

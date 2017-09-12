@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/backup"
+        android:icon="@mipmap/ic_launcher"
+
+        android:title="Backup"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/button1"
+        android:icon="@mipmap/ic_launcher"
+        android:title="简单模式,加载默认二维码扫描界面"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/button2"
+        android:icon="@mipmap/ic_launcher"
+        android:title="选择图片并解析"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/button3"
+        android:icon="@mipmap/ic_launcher"
+        android:title="定制化扫描界面"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/button4"
+        android:icon="@mipmap/ic_launcher"
+        android:title="测试生成二维码图片"
+        app:showAsAction="never"/>
+</menu>

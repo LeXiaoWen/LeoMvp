@@ -1,5 +1,7 @@
 package com.leo.mvp.base.activity;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -31,6 +33,9 @@ import javax.inject.Inject;
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
     @Inject
     public T mPresenter;
+    public ProgressDialog progressDialog;
+    private Activity mActivity;
+
     private static final Set<BaseActivity> activityList = new HashSet();
 
     public BaseActivity() {
@@ -44,6 +49,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         if (this.mPresenter == null) {
             throw new RuntimeException("没有设置Presenter或者没有重写onCreate()方法");
         } else {
+            mActivity = this;
             this.mPresenter.setActivity(this);
             toolBarInit();
             this.mPresenter.onCreate(savedInstanceState);
@@ -165,7 +171,18 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     }
 
 
-
+    public ProgressDialog showProgressDialog() {
+        progressDialog = new ProgressDialog(mActivity);
+        progressDialog.setMessage("加载中");
+        progressDialog.show();
+        return progressDialog;
+    }
+    public void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            // progressDialog.hide();会导致android.view.WindowLeaked
+            progressDialog.dismiss();
+        }
+    }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onReslut(BaseBean<String> eventBaseBean){
 
