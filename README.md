@@ -13,6 +13,6 @@
  
  ```
  dependencies {
-	        compile 'com.github.LeXiaoWen:LeoMvp:v1.0.1'
+	        compile 'com.github.LeXiaoWen:LeoMvp:v1.0.6'
 	}
  ```
