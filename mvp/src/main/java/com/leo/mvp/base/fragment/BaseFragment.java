@@ -1,5 +1,6 @@
 package com.leo.mvp.base.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,15 +27,22 @@ public abstract class BaseFragment<T extends BaseFragmentPresenter> extends Frag
         super.onAttach(context);
     }
 
-//    protected abstract T createPresenter();
 
 
+    /**
+     * 调用这个方法去获取activity
+     *
+     * @return
+     */
+    public Activity acquireActivity() {
+        return super.getActivity();
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.bindingDagger2();
-        this.mPresenter.setFragment(this);
-        this.mPresenter.onCreate(savedInstanceState);
+        bindingDagger2();
+        mPresenter.setFragment(this);
+        mPresenter.onCreate(savedInstanceState);
     }
 
     protected abstract void bindingDagger2();
@@ -42,18 +50,28 @@ public abstract class BaseFragment<T extends BaseFragmentPresenter> extends Frag
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        mPresenter = createPresenter();
-
         if (mRootView != null)
             return mRootView;
         if ((mRootView = onLayoutView(inflater, container, savedInstanceState)) != null)
             return mRootView;
         mRootView = inflater.inflate(onLayoutId(), container, false);
-        //绑定framgent
         onLastViewCreate(inflater, savedInstanceState);
         mPresenter.onCreateView();
         return mRootView;
     }
+
+
+    /**
+     * 如果要代码里面创建view调用这个方法
+     * 如果不是特殊需求只需要实现onLayoutId就可以了,这个两个方法只用实现一个
+     * 一般都不会用这个方法,所以并没有把这个方法抽象化
+     *
+     * @param inflater           解析控件的
+     * @param container          fragment的父控件
+     * @param savedInstanceState 假如acivity被强制销毁或者复现的时候就会调用这个方法
+     * @return
+     */
+
 
     protected abstract void onLastViewCreate(LayoutInflater inflater, Bundle savedInstanceState);
 
