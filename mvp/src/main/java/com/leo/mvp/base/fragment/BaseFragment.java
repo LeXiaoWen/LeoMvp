@@ -44,20 +44,20 @@ public abstract class BaseFragment<T extends BaseFragmentPresenter> extends Frag
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        mPresenter = createPresenter();
 
-
         if (mRootView != null)
             return mRootView;
         if ((mRootView = onLayoutView(inflater, container, savedInstanceState)) != null)
             return mRootView;
         mRootView = inflater.inflate(onLayoutId(), container, false);
         //绑定framgent
-        findView(mRootView);
+        onLastViewCreate(inflater, savedInstanceState);
         mPresenter.onCreateView();
-
         return mRootView;
     }
 
-    protected abstract void findView(View rootView);
+    protected abstract void onLastViewCreate(LayoutInflater inflater, Bundle savedInstanceState);
+
+
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
