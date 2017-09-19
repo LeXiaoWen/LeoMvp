@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import org.reactivestreams.Subscription;
+
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -13,12 +15,11 @@ import io.reactivex.disposables.Disposable;
  * Created by Leo on 2017/7/20.
  */
 
-public abstract class BaseFragmentPresenter<T extends BaseFragment,M extends BaseFragmentModel> {
+public abstract class BaseFragmentPresenter<T extends BaseFragment,E extends BaseFragmentModel> {
     protected T mFragment;
     @Inject
-    protected M mModel;
+    protected E mModel;
 
-    protected CompositeDisposable mCompositeSubscription = new CompositeDisposable();
 
     @Inject
     void setPresenter() {
@@ -29,8 +30,7 @@ public abstract class BaseFragmentPresenter<T extends BaseFragment,M extends Bas
         this.mFragment = fragment;
     }
 
-    public void execute(Disposable subscription) {
-        mCompositeSubscription.add(subscription);
+    public void execute(Subscription subscription) {
     }
 
 
@@ -60,8 +60,6 @@ public abstract class BaseFragmentPresenter<T extends BaseFragment,M extends Bas
     public void onDetached() {
         mModel.onDetached();
         mFragment = null;
-        if (mCompositeSubscription != null)
-            mCompositeSubscription.clear();
-        mCompositeSubscription = null;
+
     }
 }
