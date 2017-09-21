@@ -1,6 +1,7 @@
 package com.leo.leomvp.test.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,24 +43,18 @@ public class TestFragment extends BaseFragment<TestFragmentPresenter> {
         DaggerTestFragmentComponent.create().inject(this);
     }
 
-    @Override
-    protected void findView(View view) {
-//        ButterKnife.bind(getActivity());
-//        Button button = (Button) view.findViewById(R.id.b_test);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mPresenter.onClickButton();
-//            }
-//        });
 
-    }
 
 
 
     @Override
     protected int onLayoutId() {
         return R.layout.fr_test;
+    }
+
+    @Override
+    protected void onLastViewCreate(LayoutInflater inflater, @Nullable Bundle savedInstanceState) {
+
     }
 
 
