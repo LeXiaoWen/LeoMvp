@@ -11,6 +11,7 @@ import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 
 
+import com.leo.mvp.BaseApp;
 import com.leo.mvp.util.log.LogUtils;
 
 import java.io.File;
@@ -41,6 +42,16 @@ public class AppUtils {
     public static boolean isInstallApp(Context context, String packageName) {
         return !StringUtils.isSpace(packageName) && IntentUtils.getLaunchAppIntent(context, packageName) != null;
     }
+
+    /**
+     * 获取上下文对象
+     *
+     * @return 上下文对象
+     */
+    public static Context getContext() {
+        return BaseApp.getContext();
+    }
+
 
     /**
      * 安装App(支持6.0)

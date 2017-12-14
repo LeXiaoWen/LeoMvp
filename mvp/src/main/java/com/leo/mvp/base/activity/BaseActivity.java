@@ -11,11 +11,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.leo.mvp.R;
 import com.leo.mvp.base.bean.BaseBean;
+import com.leo.mvp.util.log.LogUtils;
+import com.leo.mvp.util.toast.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -35,6 +38,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public T mPresenter;
     public ProgressDialog progressDialog;
     private Activity mActivity;
+    private long clickTime = 0; //记录第一次点击的时间
 
     private static final Set<BaseActivity> activityList = new HashSet();
 
@@ -186,5 +190,25 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onReslut(BaseBean<String> eventBaseBean){
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            exit();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    private void exit() {
+        if ((System.currentTimeMillis() - clickTime) > 2000) {
+
+            ToastUtils.showShortToast("再按一次后退键退出程序");
+            clickTime = System.currentTimeMillis();
+        } else {
+            LogUtils.e("exit application");
+            this.finish();
+            //     System.exit(0);
+        }
     }
 }

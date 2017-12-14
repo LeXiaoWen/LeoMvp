@@ -11,6 +11,7 @@ import com.leo.leomvp.test.dagger.MainComponent;
 import com.leo.leomvp.test.dagger.MainModule;
 import com.leo.mvp.util.log.LogUtils;
 import com.leo.mvp.util.toast.ToastUtils;
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import javax.inject.Inject;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        QMUIStatusBarHelper.translucent(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 

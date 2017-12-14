@@ -13,10 +13,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
-        <activity android:name=".test.recyclerview.RecyclerActivity">
+        android:theme="@style/BaseAppTheme">
+        <activity android:name=".test.qmui.QMUIActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -36,6 +36,8 @@
         <activity android:name=".test.exception.ExceptionActivity">
         </activity>
         <activity android:name=".test.recyclerview.info.InfoActivity"/>
+        <activity android:name=".test.recyclerview.RecyclerActivity">
+        </activity>
     </application>
 
 </manifest>
