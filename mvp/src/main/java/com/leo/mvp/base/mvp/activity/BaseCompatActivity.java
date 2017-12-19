@@ -7,12 +7,15 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 
 import com.leo.mvp.BaseApp;
+import com.leo.mvp.base.bean.BaseBean;
 import com.leo.mvp.util.AppManager;
 import com.leo.mvp.util.data.AppUtils;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import javax.inject.Inject;
 
@@ -160,6 +163,9 @@ public abstract class BaseCompatActivity<T extends BaseCompatPresenter> extends 
     }
 
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getBaseEventMessage(BaseBean baseBean){
 
+    }
 
 }

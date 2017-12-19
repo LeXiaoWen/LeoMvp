@@ -13,11 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.leo.mvp.BaseApp;
+import com.leo.mvp.base.bean.BaseBean;
 import com.leo.mvp.util.data.AppUtils;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.qmuiteam.qmui.widget.QMUILoadingView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import javax.inject.Inject;
 
@@ -160,6 +163,11 @@ public abstract class BaseCompatFragment<P extends BaseCompatFragmentPresent> ex
 //            RefWatcher refWatcher = ((BaseApplication) application).getRefWatcher(getActivity());
 //            refWatcher.watch(this);
 //        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getBaseEventMessage(BaseBean baseBean){
+
     }
 
 }
