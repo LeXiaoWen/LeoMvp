@@ -34,7 +34,7 @@ dependencies {
     compile project(':mvp')
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-        testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
     apt "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     apt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
 }
